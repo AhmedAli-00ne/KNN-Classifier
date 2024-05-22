@@ -25,3 +25,16 @@ def KNNTrain():
     y_pred=knn.predict(X_test)
     return y_pred, y_test
 
+def evaluate(y_pred, y_test):
+    accuracy = accuracy_score(y_test, y_pred)
+    recall = recall_score(y_test, y_pred)
+    precision = precision_score(y_test, y_pred)
+    f1 = f1_score(y_test, y_pred)
+    
+    return accuracy, recall, precision, f1
+
+acc , recall, precision, f1 = evaluate(*KNNTrain())
+print('Accuracy: ', acc)
+print('Recall: ', recall)
+print('Precision: ', precision)
+print('F1: ', f1)
